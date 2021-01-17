@@ -16,12 +16,12 @@ $userDto = $dtoFactory->create(UserDto::class);
 $user = new User($userDto);
 
 header('Content-Type: application/json');
-http_response_code(200);
+echo json_encode($user->getErrors());
 
 if (!$user->validate()) {
     http_response_code(400);
-    echo json_encode($user->getErrors());
     return false;
+} else {
+    http_response_code(200);
+    return true;
 }
-
-return true;
