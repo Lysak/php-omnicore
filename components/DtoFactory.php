@@ -20,13 +20,13 @@ class DtoFactory
     }
 
     /**
-     * @param string $dto_name
+     * @param string $dto_class_name
      * @return mixed
      */
-    public function create(string $dto_name)
+    public function create(string $dto_class_name)
     {
         $data = json_decode($this->request->getBody()->getContents());
 
-        return new $dto_name($data);
+        return new $dto_class_name($data);
     }
 }
