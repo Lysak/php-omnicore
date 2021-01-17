@@ -27,6 +27,19 @@ final class UserDto
     private string $emailAddress;
 
     /**
+     * UserDto constructor.
+     * @param object $data
+     */
+    public function __construct(object $data)
+    {
+        $this->id = $data->id;
+        $this->firstName = $data->firstName;
+        $this->lastName = $data->lastName;
+        $this->phoneNumber = $data->phoneNumber;
+        $this->emailAddress = $data->email;
+    }
+
+    /**
      * Return int value from  property id
      * @return int
      */
