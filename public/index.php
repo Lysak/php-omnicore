@@ -1,28 +1,37 @@
 <?php
 
-use components\DtoFactory;
+use components\Helpers;
 use components\User;
 use Laminas\Diactoros\ServerRequestFactory;
+use samdark\hydrator\Hydrator;
 
 chdir(dirname(__DIR__));
 require 'vendor/autoload.php';
+require 'components/UserDto.php';
 
 $request = ServerRequestFactory::fromGlobals();
 
-$dtoFactory = new DtoFactory($request);
+$data = json_decode($request->getBody()->getContents(), true);
 
-$userDto = $dtoFactory->create(UserDto::class);
+if (empty($data)) {
+    return Helpers::response(Helpers::HTTP_BAD_REQUEST, 'Пустой запрос');
+}
+
+$userDtoHydrator = new Hydrator([
+    'id' => 'id',
+    'firstName' => 'firstName',
+    'lastName' => 'lastName',
+    'phoneNumber' => 'phoneNumber',
+    'email' => 'emailAddress',
+]);
+
+/** @var UserDto $userDto */
+$userDto = $userDtoHydrator->hydrate($data, UserDto::class);
 
 $user = new User($userDto);
 
-header('Content-Type: application/json');
-
 if (!$user->validate()) {
-    http_response_code(400);
-    echo json_encode($user->getErrors());
-    return false;
+    return Helpers::response(Helpers::HTTP_BAD_REQUEST, $user->getErrors());
 } else {
-    http_response_code(200);
-    echo json_encode($user->getErrors());
-    return true;
+    return Helpers::response(Helpers::HTTP_OK, $user->getErrors());
 }

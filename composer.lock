@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2363c2b9b4b0f1bdcaf00827f0fe85f",
+    "content-hash": "5658c41970443627fa922ce9f2b5623f",
     "packages": [
         {
             "name": "laminas/laminas-diactoros",
@@ -273,6 +273,51 @@
                 "source": "https://github.com/php-fig/http-message/tree/master"
             },
             "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
+            "name": "samdark/hydrator",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/samdark/hydrator.git",
+                "reference": "8c9f84bbb31f48a09832ed4d30289e929cb00e53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/samdark/hydrator/zipball/8c9f84bbb31f48a09832ed4d30289e929cb00e53",
+                "reference": "8c9f84bbb31f48a09832ed4d30289e929cb00e53",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "samdark\\hydrator\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Makarov",
+                    "email": "sam@rmcreative.ru"
+                }
+            ],
+            "description": "Allows to extract data from an object or create a new object based on data for the purpose of persisting state. Works with private and protected properties.",
+            "keywords": [
+                "extract",
+                "hydrate",
+                "hydrator"
+            ],
+            "support": {
+                "issues": "https://github.com/samdark/hydrator/issues",
+                "source": "https://github.com/samdark/hydrator"
+            },
+            "time": "2017-05-17T08:15:51+00:00"
         }
     ],
     "packages-dev": [
