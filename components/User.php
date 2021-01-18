@@ -4,16 +4,33 @@ namespace components;
 
 use UserDto;
 
+/**
+ * Class User
+ * @package components
+ */
 class User
 {
+    /**
+     * @var array
+     */
     public array $errors = [];
+    /**
+     * @var UserDto
+     */
     public UserDto $dto;
 
+    /**
+     * User constructor.
+     * @param UserDto $dto
+     */
     public function __construct(UserDto $dto)
     {
         $this->dto = $dto;
     }
 
+    /**
+     * @return bool
+     */
     public function validate(): bool
     {
         if (
@@ -52,11 +69,17 @@ class User
         return true;
     }
 
+    /**
+     * @return array
+     */
     public function getErrors(): array
     {
         return $this->errors;
     }
 
+    /**
+     * @param $message
+     */
     public function addError($message): void
     {
         $this->errors[] = $message;
