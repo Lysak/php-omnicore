@@ -1,13 +1,13 @@
 <?php
 
 use components\Helpers;
-use components\User;
 use Laminas\Diactoros\ServerRequestFactory;
+use model\User;
 use samdark\hydrator\Hydrator;
 
 chdir(dirname(__DIR__));
 require 'vendor/autoload.php';
-require 'components/UserDto.php';
+require 'dto/UserDto.php';
 
 $request = ServerRequestFactory::fromGlobals();
 
