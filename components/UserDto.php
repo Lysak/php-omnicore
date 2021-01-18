@@ -27,20 +27,7 @@ final class UserDto
     private string $emailAddress;
 
     /**
-     * UserDto constructor.
-     * @param object $data
-     */
-    public function __construct(object $data)
-    {
-        $this->id = $data->id;
-        $this->firstName = $data->firstName;
-        $this->lastName = $data->lastName;
-        $this->phoneNumber = $data->phoneNumber;
-        $this->emailAddress = $data->email;
-    }
-
-    /**
-     * Return int value from  property id
+     * Return int value from property id
      * @return int
      */
     public function getId(): int
@@ -49,7 +36,7 @@ final class UserDto
     }
 
     /**
-     * Return string value from  property firstName
+     * Return string value from property firstName
      * @return string
      */
     public function getFirstName(): string
@@ -58,7 +45,7 @@ final class UserDto
     }
 
     /**
-     * Return string value from  property lastName
+     * Return string value from property lastName
      * @return string
      */
     public function getLastName(): string
@@ -67,7 +54,7 @@ final class UserDto
     }
 
     /**
-     * Return string value from  property phoneNumber
+     * Return string value from property phoneNumber
      * @return string
      */
     public function getPhoneNumber(): string
@@ -76,7 +63,7 @@ final class UserDto
     }
 
     /**
-     * Return string value from  property emailAddress
+     * Return string value from property emailAddress
      * @return string
      */
     public function getEmailAddress(): string
